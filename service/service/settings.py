@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Graphql',
     'graphene_django',
-    'investigation'
+    'investigation',
+    'task'
 
 ]
 

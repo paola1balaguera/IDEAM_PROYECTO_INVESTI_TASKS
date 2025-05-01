@@ -11,11 +11,13 @@ class CreateInvestigation(graphene.Mutation):
         fecha_inicio = graphene.types.datetime.Date(required=True)
         fecha_fin = graphene.types.datetime.Date(required=True)
         coordenadas_geograficas = graphene.String(required=True)
+        nombre = graphene.String(required=True)
 
-    def mutate(self, info, fecha_inicio, fecha_fin, coordenadas_geograficas):
+    def mutate(self, info, fecha_inicio, fecha_fin, coordenadas_geograficas, nombre):
         inv = Investigacion.objects.create(
             fecha_inicio=fecha_inicio,
             fecha_fin=fecha_fin,
-            coordenadas_geograficas=coordenadas_geograficas
+            coordenadas_geograficas=coordenadas_geograficas,
+            nombre = nombre
         )
         return CreateInvestigation(investigacion=inv)
